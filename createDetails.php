@@ -1,0 +1,28 @@
+<?php 
+$conn = mysqli_connect('localhost', 'root', '', 'dellsham');
+
+
+$message = '';
+
+if (isset ($_POST['submit'])) {
+    $fname = $_POST['fname'];
+    $fname = mysqli_real_escape_string($conn, $fname);
+    $lname = $_POST['lname'];
+    $lname = mysqli_real_escape_string($conn, $lname);
+    $email = $_POST['email'];
+    $email = mysqli_real_escape_string($conn, $email);
+
+    $query = "INSERT INTO capture (fname, lname, email) 
+    
+    VALUES ('$fname','$lname', '$email')";
+    $result = mysqli_query($conn,$query);
+    if ($result) {
+        echo "<script>
+        alert('Successfully Subscribed');
+        </script>";
+    }else {
+        echo "<script>
+        alert('Unsuccessful')
+        </script>";
+    }
+}
