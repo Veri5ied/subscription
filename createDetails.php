@@ -1,5 +1,5 @@
 <?php 
-$conn = mysqli_connect('localhost', 'root', '', 'dellsham');
+$conn = mysqli_connect('localhost', 'id14338083_alvin', '@Al08145075442', 'id14338083_capture');
 
 
 $message = '';
@@ -12,7 +12,7 @@ if (isset ($_POST['submit'])) {
     $email = $_POST['email'];
     $email = mysqli_real_escape_string($conn, $email);
 
-    $query = "INSERT INTO capture (fname, lname, email) 
+    $query = "INSERT INTO details (fname, lname, email) 
     
     VALUES ('$fname','$lname', '$email')";
     $result = mysqli_query($conn,$query);
